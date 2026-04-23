@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hussein Jemal | Software Engineering Portfolio</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafcff;
+      color: #0a0c10;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 85px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      transition: all 0.25s ease;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #d97706;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .logo span {
+      color: #d97706;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #d97706;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #1e293b;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      background: linear-gradient(135deg, #f9fbfd 0%, #f0f4fa 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #eef2ff;
+      color: #1e4a6e;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 .highlight {
+      color: #d97706;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #d97706;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-primary:hover {
+      background: #b45309;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 18px -8px rgba(217,119,6,0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #cbd5e1;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #1e293b;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-outline:hover {
+      border-color: #d97706;
+      color: #d97706;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-frame {
+      background: white;
+      border-radius: 2.5rem;
+      padding: 0.6rem;
+      box-shadow: 0 30px 35px -15px rgba(0,0,0,0.1);
+      border: 1px solid rgba(217,119,6,0.2);
+      position: relative;
+    }
+    .hero-img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 2rem;
+      transition: transform 0.25s;
+    }
+    .upload-btn {
+      margin-top: 1rem;
+      background: white;
+      border: 1px solid #d97706;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #d97706;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .upload-btn:hover {
+      background: #d97706;
+      color: white;
+    }
+    #imageUpload {
+      display: none;
+    }
+
+    /* section titles */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60%;
+      height: 3.5px;
+      background: #d97706;
+      border-radius: 4px;
+    }
+
+    /* skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-card {
+      background: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .skill-card i {
+      color: #d97706;
+      font-size: 1.1rem;
+    }
+    .skill-card:hover {
+      border-color: #fbbf24;
+      transform: translateY(-3px);
+    }
+
+    /* education */
+    .edu-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      box-shadow: 0 12px 25px -12px rgba(0,0,0,0.05);
+      border-left: 6px solid #d97706;
+      transition: 0.2s;
+      margin-bottom: 1.8rem;
+    }
+    .edu-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .edu-meta {
+      color: #d97706;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .edu-desc {
+      color: #334155;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: 0.25s;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 28px -12px rgba(0,0,0,0.1);
+      border-color: #fed7aa;
+    }
+    .project-icon {
+      background: linear-gradient(145deg, #0f2b3d, #1e4a6e);
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      font-size: 2.4rem;
+    }
+    .project-info {
+      padding: 1.5rem;
+    }
+    .project-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-info p {
+      color: #475569;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .tech-stack span {
+      background: #f1f5f9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    .project-link {
+      color: #d97706;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* contact section */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      background: #ffffffdd;
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid #edf2f7;
+    }
+    .contact-left {
+      flex: 1.5;
+    }
+    .contact-right {
+      flex: 1;
+      background: linear-gradient(145deg, #f8fafc, #ffffff);
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #eef2ff;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-detail i {
+      width: 36px;
+      color: #d97706;
+      font-size: 1.2rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .social-links a {
+      background: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e4a6e;
+      font-size: 1.2rem;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: #d97706;
+      color: white;
+      transform: scale(1.05);
+    }
+    .contact-note {
+      background: #fef3c7;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #92400e;
+      text-align: center;
+    }
+    .quick-message-btn {
+      background: #d97706;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 50px;
+      text-align: center;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+    }
+    .quick-message-btn:hover {
+      background: #b45309;
+    }
+
+    footer {
+      background: #0a0c10;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        box-shadow: 0 12px 20px -12px rgba(0,0,0,0.05);
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .section-title:after {
+        left: 20%;
+        width: 60%;
+      }
+      .hero-img {
+        width: 240px;
+        height: 240px;
+      }
+      .logo-img {
+        width: 38px;
+        height: 38px;
+      }
+      .logo {
+        font-size: 1.3rem;
+      }
+    }
+    @media (max-width: 550px) {
+      .hero-img {
+        width: 200px;
+        height: 200px;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="hjm.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/45x45?text=H'">
+      HUSSEIN WEBSITE<span></span>
+    </div>
+    <div class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Software Engineering Student</div>
+        <h1>Hi, I'm <span class="highlight">Hussein Jemal</span><br>Building digital solutions with passion</h1>
+        <p>3rd-year Software Engineering student at MAU University, Ethiopia. I craft modern web experiences, solve real-world problems, and love turning ideas into code.</p>
+        <div class="btn-group">
+          <a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> View my work</a>
+          <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="image-frame">
+          <img src="hjm.jpg" alt="Hussein Jemal profile" class="hero-img" id="profileImage" onerror="this.src='https://via.placeholder.com/320x320?text=Hussein'">
+        </div>
+        <label for="imageUpload" class="upload-btn">
+          <i class="fas fa-cloud-upload-alt"></i> Change photo
+        </label>
+        <input type="file" id="imageUpload" accept="image/jpeg, image/png, image/jpg">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About me</h2>
+      <div style="background: white; border-radius: 1.8rem; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid #edf2f7;">
+        <p style="margin-bottom: 1rem; font-size: 1.05rem;">🔹 I'm <strong>Hussein Jemal</strong>, a dedicated software engineering student at <strong>MEKDELA AMBA University (MAU)</strong>, located in the Amhara region, Ethiopia. I have a deep passion for backend logic, frontend aesthetics, and building tools that make a tangible difference in my community.</p>
+        <p style="margin-bottom: 1rem;">🔹 Over the past 3 years, I've worked on several academic and personal projects, including university management portals, weather apps, and modern portfolio designs. I believe in writing clean, maintainable code and collaborating with diverse teams to create impactful software.</p>
+        <p>🔹 My goal: to become a full-stack developer who contributes to Ethiopia's tech ecosystem and beyond. Currently exploring cloud computing, AI integrations, and open-source contributions. I'm always eager to learn and take on new challenges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background: #fefcf9;">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fab fa-html5"></i> HTML5/CSS3</div>
+        <div class="skill-card"><i class="fab fa-js"></i> JavaScript (ES6+)</div>
+        <div class="skill-card"><i class="fab fa-react"></i> React.js</div>
+        <div class="skill-card"><i class="fab fa-python"></i> Python</div>
+        <div class="skill-card"><i class="fab fa-java"></i> Java (OOP)</div>
+        <div class="skill-card"><i class="fas fa-database"></i> MySQL / MongoDB</div>
+        <div class="skill-card"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+        <div class="skill-card"><i class="fas fa-code-branch"></i> REST APIs</div>
+        <div class="skill-card"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+        <div class="skill-card"><i class="fab fa-node-js"></i> Node.js</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section - MAU University, Ethiopia -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education & Journey</h2>
+      <div class="edu-card">
+        <h3><i class="fas fa-university"></i> MEKDELA AMBA University (MAU) – Ethiopia</h3>
+        <div class="edu-meta">
+          <span><i class="fas fa-calendar-alt"></i> 2023 – 2026</span>
+          <span><i class="fas fa-map-marker-alt"></i> Ethiopia</span>
+        </div>
+        <p class="edu-desc">Bachelor of Science in Software Engineering · 3rd Year Student  <br>Relevant coursework: Data Structures, Web Development, Database Systems, Software Design, Algorithms, Operating Systems, Computer Networks.</p>
+      </div>
+      <div class="edu-card">
+        <h3><i class="fas fa-certificate"></i> Certifications & Training</h3>
+        <div class="edu-meta">Coursera · Google Africa Developer Scholarship · freeCodeCamp</div>
+        <p class="edu-desc">✔ JavaScript Algorithms & Data Structures (freeCodeCamp) ✔ Responsive Web Design ✔ Python for Everybody (University of Michigan) ✔ Introduction to Cybersecurity (Cisco)</p>
+      </div>
+      <div class="edu-card">
+        <h3><i class="fas fa-trophy"></i> Achievements & Leadership</h3>
+        <p class="edu-desc">🏅 MAU Hackathon 2025 - Best Innovative Solution (EduTech platform for rural schools) <br>🏅 Recognized for academic excellence in software engineering department 2023/24. <br>🏅 Lead organizer of MAU Code Club – mentoring junior students in web development.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section - Ethiopia Focus -->
+  <section id="projects" style="background: #ffffff;">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Updated -->
+  <section id="contact">
+    <div class="container contact-wrapper">
+      <div class="contact-left">
+        <h2 class="section-title" style="margin-bottom: 1rem;">Let's contact</h2>
+        <p style="margin-bottom: 1.5rem; color: #2c3e50;">I'm actively looking for internships, collaborations, and open-source contributions. Feel free to reach out — let's build something amazing together!</p>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i> <span><strong>husseinjemal027@gmail.com</strong></span>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt"></i> <span><strong>+251 901 348 769</strong></span>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-map-marker-alt"></i> <span>Bahir Dar / Dessie, Ethiopia</span>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h4><i class="fas fa-comment-dots"></i> Quick Contact</h4>
+        <p style="margin: 0.8rem 0; font-size: 0.9rem;">📩 Email me directly for opportunities</p>
+        <div style="background: white; border-radius: 1rem; padding: 1rem; text-align: center; margin-bottom: 0.8rem;">
+          <i class="fas fa-paper-plane" style="color:#d97706; font-size: 1.8rem;"></i>
+          <p style="margin-top: 0.5rem; font-weight: 500; word-break: break-all;">husseinjemal027@gmail.com</p>
+        </div>
+        <div style="background: white; border-radius: 1rem; padding: 0.8rem; text-align: center;">
+          <i class="fas fa-phone-alt" style="color:#d97706; font-size: 1.4rem;"></i>
+          <p style="margin-top: 0.3rem; font-weight: 600;">0901 348 769</p>
+        </div>
+        <div class="contact-note">
+          <i class="fas fa-clock"></i> Response within 24 hours | Open for remote internships
+        </div>
+        <button class="quick-message-btn" onclick="window.location.href='mailto:husseinjemal027@gmail.com'">
+          <i class="fas fa-envelope"></i> Send Email Now
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Hussein Jemal — Software Engineering Student @ MAU University, Ethiopia | Built with <i class="fas fa-heart" style="color:#f97316;"></i> and modern web stack</p>
+</footer>
+
+<script>
+  // Image upload functionality for profile picture
+  const imageUpload = document.getElementById('imageUpload');
+  const profileImage = document.getElementById('profileImage');
+  const logoImage = document.querySelector('.logo-img');
+
+  imageUpload.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        // Update profile image
+        profileImage.src = e.target.result;
+        // Also update logo image
+        if (logoImage) {
+          logoImage.src = e.target.result;
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Project data - Ethiopia focus (replaced Amhara with Ethiopia)
+  const projectsArray = [
+    {
+      title: "Student Hub Portal",
+      description: "Comprehensive web platform for MAU students across Ethiopia to access resources, grades, announcements, and discussion forums. Role-based authentication system.",
+      tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      icon: "fas fa-users",
+      link: "#"
+    },
+    {
+      title: "Ethiopia Agro-Tech",
+      description: "Agricultural advisory dashboard providing real-time weather data & market prices for local farmers across Ethiopia. Capstone project prototype supporting food security.",
+      tech: ["Python", "Flask", "Chart.js", "Bootstrap"],
+      icon: "fas fa-seedling",
+      link: "#"
+    },
+    {
+      title: "TaskFlow Manager",
+      description: "Productivity tool for team task management with real-time updates, drag-and-drop interface, and local storage synchronization.",
+      tech: ["JavaScript", "Firebase", "CSS Grid", "HTML5"],
+      icon: "fas fa-tasks",
+      link: "#"
+    },
+    {
+      title: "Portfolio 3D Experience",
+      description: "Immersive personal portfolio with WebGL and smooth animations, showcasing creative engineering and interactive design.",
+      tech: ["Three.js", "GSAP", "HTML/CSS", "JavaScript"],
+      icon: "fas fa-cube",
+      link: "#"
+    }
+  ];
+
+  function renderProjects() {
+    const grid = document.getElementById('projectsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    projectsArray.forEach(proj => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <div class="project-icon">
+          <i class="${proj.icon}"></i>
+        </div>
+        <div class="project-info">
+          <h3>${proj.title}</h3>
+          <p>${proj.description}</p>
+          <div class="tech-stack">
+            ${proj.tech.map(t => `<span>${t}</span>`).join('')}
+          </div>
+          <a href="${proj.link}" class="project-link" target="_blank">Live demo →</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navLinksDiv = document.getElementById('navLinks');
+  function toggleMenu() {
+    navLinksDiv.classList.toggle('mobile-open');
+    const icon = mobileBtn.querySelector('i');
+    if (navLinksDiv.classList.contains('mobile-open')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
+  if (mobileBtn) mobileBtn.addEventListener('click', toggleMenu);
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinksDiv.classList.contains('mobile-open')) toggleMenu();
+    });
+  });
+
+  // smooth scroll + active link highlight
+  const sections = document.querySelectorAll("section[id]");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.style.color = "#1e293b";
+      if (link.getAttribute("href") === `#${current}`) link.style.color = "#d97706";
+    });
+    // header style
+    const header = document.getElementById('header');
+    if (window.scrollY > 30) header.style.background = "rgba(255,255,255,0.96)";
+    else header.style.background = "rgba(255,255,255,0.95)";
+  });
+
+  // Initialize projects
+  renderProjects();
+
+  // Handle logo/image errors - if hjm.jpg not found, use placeholder but keep functionality
+  const allImages = [profileImage, logoImage];
+  allImages.forEach(img => {
+    if (img) {
+      img.addEventListener('error', function() {
+        this.src = 'https://via.placeholder.com/320x320?text=Hussein';
+      });
+    }
+  });
+
+  console.log("✅ Portfolio ready — Hussein Jemal | Logo & profile image set to hjm.jpg");
+</script>
+</body>
+</html>
